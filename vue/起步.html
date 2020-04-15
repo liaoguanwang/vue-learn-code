@@ -7,20 +7,91 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
+
     <!-- demo1 -->
     <h2>--- demo1 ---</h2>
-    <div id="app">
+    <div id="demo1">
       {{ message }}
     </div>
     <script>
       var app = new Vue({
-        el: "#app",
+        el: "#demo1",
         data: {
           message: "Hello Vue!",
         },
       });
     </script>
 
-    
+    <!-- demo2 -->
+    <h2>--- demo2 ---</h2>
+    <div id="demo2">
+      <p v-if="seen">现在你看到我了</p>
+    </div>
+    <script>
+      var app =new Vue({
+        el: '#demo2',
+        data: {
+          seen: true
+        }
+      })
+    </script>
+
+    <!-- demo3 -->
+    <h2>--- demo3 ---</h2>
+    <div id="demo3">
+      <ol>
+        <li v-for="todo in todos">
+          {{todo.text}}
+        </li>
+      </ol>
+    </div>
+    <script>
+      var app = new Vue({
+        el: '#demo3',
+        data: {
+          todos:[
+          { text: '学习 JavaScript' },
+          { text: '学习 Vue' },
+          { text: '整个牛项目' }
+          ]
+        }
+      })
+    </script>
+
+    <!-- demo4 -->
+    <h2>--- demo4 ---</h2>
+    <div id="demo4">
+      <p>{{message}}</p>
+      <button v-on:click="reverMessage">反转消息</button>
+    </div>
+    <script>
+      var app = new Vue({
+        el: '#demo4',
+        data: {
+          message: 'Hello Vue.js!'
+        },
+        methods: {
+          reverMessage: function(){
+            this.message = this.message.split('').reverse().join('')
+          }
+        }
+      })
+    </script>
+
+    <!-- demo5 -->
+    <h2>--- demo5 ---</h2>
+    <div id="demo5">
+      <p>{{message}}</p>
+      <input v-model="message">
+    </div>
+    <script>
+      var app = new Vue({
+        el: '#demo5',
+        data: {
+          message: 'Hello Vue!'
+        }
+      })
+    </script>
+
   </body>
 </html>
